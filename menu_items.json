@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Milk Tea",
+    "description": "Our signature black tea with creamy milk and chewy tapioca pearls",
+    "price": 4.95,
+    "category": "milk-tea",
+    "image": "classic-milk-tea.jpg",
+    "customizations": ["Sugar Level", "Ice Level", "Pearls", "Pudding"],
+    "popular": true
+  },
+  {
+    "id": 2,
+    "name": "Taro Milk Tea",
+    "description": "Sweet taro flavor blended with milk and tea, topped with taro chunks",
+    "price": 5.45,
+    "category": "milk-tea",
+    "image": "taro-milk-tea.jpg",
+    "customizations": ["Sugar Level", "Ice Level", "Pearls", "Taro Chunks"],
+    "popular": true
+  },
+  {
+    "id": 3,
+    "name": "Matcha Latte",
+    "description": "Premium Japanese matcha green tea with steamed milk",
+    "price": 5.75,
+    "category": "specialty",
+    "image": "matcha-latte.jpg",
+    "customizations": ["Sugar Level", "Milk Type", "Whipped Cream"],
+    "popular": false
+  },
+  {
+    "id": 4,
+    "name": "Strawberry Fruit Tea",
+    "description": "Refreshing green tea with fresh strawberry puree and fruit chunks",
+    "price": 5.25,
+    "category": "fruit-tea",
+    "image": "strawberry-tea.jpg",
+    "customizations": ["Sugar Level", "Ice Level", "Fruit Toppings"],
+    "popular": true
+  },
+  {
+    "id": 5,
+    "name": "Thai Tea",
+    "description": "Authentic Thai tea with condensed milk and a hint of spice",
+    "price": 4.95,
+    "category": "specialty",
+    "image": "thai-tea.jpg",
+    "customizations": ["Sugar Level", "Ice Level", "Pearls"],
+    "popular": false
+  },
+  {
+    "id": 6,
+    "name": "Mango Green Tea",
+    "description": "Fresh mango blended with green tea and aloe vera bits",
+    "price": 5.35,
+    "category": "fruit-tea",
+    "image": "mango-tea.jpg",
+    "customizations": ["Sugar Level", "Ice Level", "Aloe Vera", "Jelly"],
+    "popular": true
+  },
+  {
+    "id": 7,
+    "name": "Brown Sugar Boba",
+    "description": "Fresh milk with caramelized brown sugar boba pearls",
+    "price": 5.95,
+    "category": "signature",
+    "image": "brown-sugar-boba.jpg",
+    "customizations": ["Ice Level", "Pearl Amount"],
+    "popular": true
+  },
+  {
+    "id": 8,
+    "name": "Coffee Milk Tea",
+    "description": "The perfect blend of coffee and milk tea for a caffeine boost",
+    "price": 5.50,
+    "category": "specialty",
+    "image": "coffee-milk-tea.jpg",
+    "customizations": ["Sugar Level", "Ice Level", "Pearls"],
+    "popular": false
+  }
+]

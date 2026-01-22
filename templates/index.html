@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brown Sugar Café - Boba Tea & Coffee</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fdf7;
+            color: #2E2E2E;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Enhanced Color Palette with New Colors */
+        :root {
+            --brown-sugar: #dbbbadf3;
+            --milk-tea-cream: #EED9B7;
+            --caramel-gold: #CFAE70;
+            --strawberry-pink: #FF6B9D;
+            --soft-beige: #FAF6F0;
+            --fresh-mint: #8cd5a0;
+            --light-mint: #b2e4b3;
+            --blush-pink: #e94e77;  /* NEW: Blush pink */
+            --matcha-green: #6B8F4E;
+            --text-primary: #2E2E2E;
+            --text-secondary: #6B6B6B;
+            --card-gradient: linear-gradient(135deg, #FAF6F0, #b2e4b3, #f7d6e7);
+            --button-gradient: linear-gradient(135deg, #8B4A2F, #8cd5a0);
+            --header-gradient: linear-gradient(135deg, #FAF6F0, #b2e4b3);
+        }
+        
+        /* Header */
+        header {
+            background: var(--header-gradient);
+            padding: 1.2rem 2rem;
+            box-shadow: 0 2px 15px rgba(140, 213, 160, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--brown-sugar);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+    .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+}
+
+/* صورة العنوان الرئيسي */
+.logo-text-image {
+    height: 45px; /* ارتفاع مناسب للعرض */
+    width: auto; /* يحافظ على النسب */
+    display: block;
+    margin-bottom: 3px; /* مسافة بين العنوان والتاقلاين */
+    filter: drop-shadow(0.5px 0.5px 1px rgba(0, 0, 0, 0.1));
+}
+
+/* صورة التاقلاين */
+.tagline-image {
+    height: 100px; /* أصغر من العنوان */
+    width: auto;
+    display: block;
+    opacity: 0.9; /* شفافية خفيفة */
+}
+
+
+
+        .cart-btn {
+            background: linear-gradient(135deg, var(--brown-sugar), var(--fresh-mint));
+            color: white;
+            border: none;
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            box-shadow: 0 4px 15px rgba(139, 74, 47, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 74, 47, 0.4);
+        }
+        
+        .cart-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--fresh-mint), var(--brown-sugar));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cart-btn:hover::after {
+            opacity: 1;
+        }
+        
+        .cart-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cart-icon {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cart-badge {
+            background-color: var(--strawberry-pink);
+            color: white;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 0.3rem;
+            position: relative;
+            z-index: 1;
+            border: 2px solid white;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--card-gradient);
+            border-radius: 25px;
+            padding: 4rem 3rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            border: 2px solid rgba(140, 213, 160, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(247, 214, 231, 0.3), transparent);
+            border-radius: 50%;
+        }
+        
+        .hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--brown-sugar);
+            position: relative;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* Branch Selector */
+        .branch-selector {
+            background-color: white;
+            border-radius: 25px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 2px solid var(--light-mint);
+            box-shadow: 0 10px 30px rgba(178, 228, 179, 0.15);
+        }
+        
+        .branch-selector h2 {
+            font-family: 'Sora', sans-serif;
+            color: var(--brown-sugar);
+            margin-bottom: 1.8rem;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .section-icon {
+            width: 32px;
+            height: 32px;
+            filter: brightness(0) saturate(100%) invert(27%) sepia(36%) saturate(1015%) hue-rotate(342deg) brightness(92%) contrast(89%);
+        }
+        
+        .branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+        
+        .branch-card {
+            background: linear-gradient(135deg, #f7fdf9, var(--light-mint));
+            padding: 2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .branch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(247, 214, 231, 0.2), transparent);
+            border-radius: 0 0 0 100%;
+        }
+        
+        .branch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(178, 228, 179, 0.25);
+            border-color: var(--fresh-mint);
+        }
+        
+        .branch-card.selected {
+            border-color: var(--brown-sugar);
+            background: linear-gradient(135deg, #8B4A2F, var(--fresh-mint));
+            color: white;
+            box-shadow: 0 15px 35px rgba(139, 74, 47, 0.25);
+        }
+        
+        .branch-card.selected h3,
+        .branch-card.selected p {
+            color: white;
+        }
+        
+        .branch-card h3 {
+            color: var(--brown-sugar);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+            font-family: 'Sora', sans-serif;
+        }
+        
+        .branch-card p {
+            color: var(--text-secondary);
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .branch-card .branch-hours {
+            color: var(--fresh-mint);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(140, 213, 160, 0.3);
+        }
+        
+        /* Menu Section */
+        .menu-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .menu-header h2 {
+            font-family: 'Sora', sans-serif;
+            color: var(--brown-sugar);
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .menu-header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            color: var(--brown-sugar);
+            border: 2px solid var(--fresh-mint);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, var(--fresh-mint), var(--light-mint));
+            color: var(--brown-sugar);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(140, 213, 160, 0.2);
+        }
+        
+        /* Drinks Grid */
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .drink-card {
+            background-color: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(140, 213, 160, 0.15);
+            transition: all 0.3s ease;
+            border: 2px solid var(--light-mint);
+            position: relative;
+        }
+        
+        
+        .drink-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(140, 213, 160, 0.25);
+            border-color: var(--brown-sugar);
+        }
+        
+        .drink-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(247, 214, 231, 0.2), transparent);
+            border-radius: 0 0 0 100%;
+        }
+        
+        .drink-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--milk-tea-cream), var(--light-mint));
+        }
+        
+        .drink-content {
+            padding: 2rem;
+        }
+        
+        .drink-category {
+            display: inline-block;
+            background-color: rgba(140, 213, 160, 0.2);
+            color: var(--brown-sugar);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .drink-card h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Sora', sans-serif;
+        }
+        
+        .drink-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .drink-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        
+        .drink-price {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--brown-sugar), var(--fresh-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .drink-price::before {
+            content: '₪';
+            font-size: 1.5rem;
+            margin-right: 3px;
+        }
+        
+        /* Bubble Selection Section */
+        .bubble-selection {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(140, 213, 160, 0.3);
+        }
+        
+        .bubble-option {
+            margin-bottom: 1.2rem;
+        }
+        
+        .bubble-option label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: var(--brown-sugar);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .bubble-toggle {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .toggle-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid var(--light-mint);
+            border-radius: 10px;
+            background: white;
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .toggle-btn:hover {
+            border-color: var(--fresh-mint);
+            color: var(--brown-sugar);
+        }
+        
+        .toggle-btn.selected {
+            background: linear-gradient(135deg, var(--light-mint), var(--fresh-mint));
+            border-color: var(--brown-sugar);
+            color: var(--brown-sugar);
+            font-weight: 600;
+        }
+        
+        .bubble-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+        }
+        
+        .bubble-type {
+            padding: 0.8rem;
+            border: 2px solid var(--light-mint);
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .bubble-type:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(140, 213, 160, 0.2);
+        }
+        
+        .bubble-type.selected {
+            border-color: var(--brown-sugar);
+            background: linear-gradient(135deg, #f9fdf9, var(--light-mint));
+        }
+        
+        .bubble-pearl {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-bottom: 0.3rem;
+        }
+        
+        .pearl-brown { background: #dfb3a1; }
+        .pearl-mint { background: #8cd5a0; }
+        .pearl-pink { background: #f7d6e7; }
+        .pearl-matcha { background: #6B8F4E; }
+        .pearl-strawberry { background: #FF6B9D; }
+        .pearl-taro { background: #C8A2C8; }
+        .pearl-lychee { background: #FFD3B5; }
+        .pearl-honey { background: #F7DC6F; }
+        
+        .bubble-type span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .customize {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(140, 213, 160, 0.3);
+        }
+        
+        .customize label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: var(--brown-sugar);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .customize select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--light-mint);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .customize select:focus {
+            outline: none;
+            border-color: var(--brown-sugar);
+            box-shadow: 0 0 0 3px rgba(140, 213, 160, 0.1);
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            background: linear-gradient(135deg, var(--strawberry-pink), var(--blush-pink));
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-family: 'Sora', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        
+        .add-to-cart:hover {
+            background: linear-gradient(135deg, #FF6B9D, #FF8AB3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        /* Cart Modal - Enhanced */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, white, #f9fdf9);
+            border-radius: 30px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 70px rgba(140, 213, 160, 0.3);
+            position: relative;
+            border: 3px solid var(--fresh-mint);
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--fresh-mint), var(--light-mint));
+            padding: 2rem 2.5rem;
+            border-radius: 25px 25px 0 0;
+        }
+        
+        .modal-header h2 {
+            color: white;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.2rem;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--brown-sugar);
+            border: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .close-modal:hover {
+            background: var(--strawberry-pink);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 2rem 2.5rem;
+        }
+        
+        .order-summary {
+            background: linear-gradient(135deg, #f9fdf9, white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--light-mint);
+        }
+        
+        .order-summary h3 {
+            color: var(--brown-sugar);
+            margin-bottom: 1rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(140, 213, 160, 0.2);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-item .label {
+            color: var(--text-secondary);
+        }
+        
+        .summary-item .value {
+            color: var(--brown-sugar);
+            font-weight: 600;
+        }
+        
+        .cart-items-container {
+            margin-bottom: 2rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            background: white;
+            border-radius: 15px;
+            border: 2px solid var(--light-mint);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .cart-item:hover {
+            border-color: var(--fresh-mint);
+            box-shadow: 0 5px 15px rgba(140, 213, 160, 0.1);
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-info h4 {
+            color: var(--brown-sugar);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-family: 'Sora', sans-serif;
+        }
+        
+        .cart-item-details {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .bubble-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-right: 1rem;
+        }
+        
+        .small-pearl {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .cart-item-price {
+            color: var(--fresh-mint);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .cart-item-price::before {
+            content: '₪';
+            font-size: 1rem;
+        }
+        
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: flex-end;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--light-mint);
+            background: white;
+            color: var(--brown-sugar);
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--light-mint);
+        }
+        
+        .item-quantity {
+            min-width: 30px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--brown-sugar);
+        }
+        
+        .remove-btn {
+            background: linear-gradient(135deg, var(--strawberry-pink), var(--blush-pink));
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            min-width: 80px;
+        }
+        
+        .remove-btn:hover {
+            background: linear-gradient(135deg, #ff5252, var(--strawberry-pink));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .empty-cart-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--light-mint);
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            margin-top: 1.5rem;
+            border-top: 3px solid var(--light-mint);
+        }
+        
+        .cart-total span:first-child {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--brown-sugar);
+        }
+        
+        .cart-total span:last-child {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--brown-sugar), var(--fresh-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cart-total span:last-child::before {
+            content: '₪';
+            font-size: 1.6rem;
+        }
+        
+        .checkout-form {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-mint);
+        }
+        
+        .checkout-form h3 {
+            color: var(--brown-sugar);
+            margin-bottom: 1.5rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--brown-sugar);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .checkout-form input,
+        .checkout-form select,
+        .checkout-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-mint);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-primary);
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .checkout-form input:focus,
+        .checkout-form select:focus,
+        .checkout-form textarea:focus {
+            outline: none;
+            border-color: var(--brown-sugar);
+            box-shadow: 0 0 0 3px rgba(140, 213, 160, 0.1);
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--brown-sugar), var(--fresh-mint));
+            color: white;
+            border: none;
+            padding: 1.3rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-family: 'Sora', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        
+        .checkout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 74, 47, 0.3);
+        }
+        
+        .success-msg {
+            display: none;
+            background: linear-gradient(135deg, var(--fresh-mint), var(--light-mint));
+            color: white;
+            padding: 1.2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(140, 213, 160, 0.3);
+        }
+        
+        .success-msg.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--brown-sugar), var(--fresh-mint));
+            color: white;
+            padding: 4rem 2rem 2.5rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, var(--brown-sugar), transparent);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--milk-tea-cream);
+            margin-bottom: 1.5rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--light-mint);
+            border-radius: 3px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #EED9B7;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            line-height: 1.6;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--milk-tea-cream);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.2rem;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .drinks-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .branch-selector, .hero {
+                padding: 2rem 1.5rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .item-actions {
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--light-mint);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--fresh-mint), var(--brown-sugar));
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="static/images/brown.png" class="logo-img" alt="logo">
+                        <img src="static/images/title.png" class="tagline-image" alt="Boba Tea • Coffee • Sweet Moments">
+
+            </div>
+            <button class="cart-btn" onclick="toggleCart()">
+                <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" class="cart-icon" alt="cart">
+                <span>Cart</span>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <h1>Welcome to Brown Sugar Café</h1>
+            <p>Customize your perfect drink with our premium boba selection and fresh ingredients.</p>
+        </div>
+        
+        <!-- Branch Selector -->
+        <div class="branch-selector">
+            <h2>
+                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" class="section-icon" alt="location">
+                Choose Your Branch
+            </h2>
+            <div class="branches" id="branchesContainer"></div>
+        </div>
+        
+        <!-- Menu -->
+        <div class="menu-header">
+            <h2>Our Signature Menu</h2>
+            <p>Handcrafted with love, served with passion. Customize your perfect drink.</p>
+        </div>
+        
+        <div class="menu-filters">
+            <button class="filter-btn active" onclick="filterDrinks('all')">All Drinks</button>
+            <button class="filter-btn" onclick="filterDrinks('Classic')">Brown Sugar Classics</button>
+            <button class="filter-btn" onclick="filterDrinks('Fruit')">Fruit Teas</button>
+            <button class="filter-btn" onclick="filterDrinks('Hot Drink')">Hot Drinks</button>
+            <button class="filter-btn" onclick="filterDrinks('Coffee')">Coffee Blends</button>
+        </div>
+        
+        <div class="drinks-grid" id="drinksGrid"></div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="toggleCart()">×</button>
+            <div class="modal-header">
+                <h2>Your Order</h2>
+            </div>
+            <div class="modal-body">
+                <div class="success-msg" id="successMsg"></div>
+                
+                <!-- Order Summary -->
+                <div class="order-summary" id="orderSummary" style="display: none;">
+                    <h3>
+                        <img src="https://cdn-icons-png.flaticon.com/512/929/929416.png" width="24" height="24">
+                        Order Details
+                    </h3>
+                    <div class="summary-item">
+                        <span class="label">Selected Branch:</span>
+                        <span class="value" id="summaryBranch">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Total Items:</span>
+                        <span class="value" id="summaryItems">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Order Time:</span>
+                        <span class="value" id="summaryTime">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">Estimated Ready:</span>
+                        <span class="value" id="summaryReady">-</span>
+                    </div>
+                </div>
+                
+                <!-- Cart Items -->
+                <div class="cart-items-container" id="cartItemsContainer"></div>
+                
+                <!-- Empty Cart -->
+                <div class="empty-cart" id="emptyCart">
+                    <div class="empty-cart-icon">🧋</div>
+                    <p>Your cart is empty</p>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Add some delicious drinks to get started!</p>
+                </div>
+                
+                <!-- Cart Total -->
+                <div class="cart-total" id="cartTotalSection" style="display: none;">
+                    <span>Total:</span>
+                    <span id="cartTotal">₪0.00</span>
+                </div>
+                
+                <!-- Checkout Form -->
+                <div class="checkout-form" id="checkoutForm" style="display: none;">
+                    <h3>
+                        <img src="https://cdn-icons-png.flaticon.com/512/3710/3710316.png" width="24" height="24">
+                        Complete Your Order
+                    </h3>
+                    
+                    <div class="form-group">
+                        <label for="customerName">Full Name *</label>
+                        <input type="text" id="customerName" placeholder="Your Full Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">Phone Number *</label>
+                        <input type="tel" id="customerPhone" placeholder="05x-xxx-xxxx" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">Email Address</label>
+                        <input type="email" id="customerEmail" placeholder="your.email@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="orderNotes">Special Instructions</label>
+                        <textarea id="orderNotes" placeholder="Any special requests or allergies..." rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pickupTime">Preferred Pickup Time</label>
+                        <select id="pickupTime">
+                            <option value="asap">As Soon As Possible</option>
+                            <option value="15min">In 15 Minutes</option>
+                            <option value="30min">In 30 Minutes</option>
+                            <option value="45min">In 45 Minutes</option>
+                            <option value="60min">In 1 Hour</option>
+                        </select>
+                    </div>
+                    
+                    <button class="checkout-btn" onclick="placeOrder()">Place Order & Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Brown Sugar Café</h3>
+                <p>Experience the perfect blend of tradition and innovation. Our Brown Sugar Boba is crafted with premium ingredients and served with passion.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>📞 +970567 224 455</p>
+                <p>✉️ demo@gmail.com</p>
+                <p>📍 Multiple locations across Palestine</p>
+                <p>🕒 Open Daily: 8:00 AM - 11:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links(Comming Soon)</h3>
+                <a href="#">Our Story</a>
+                <a href="#">Careers</a>
+                <a href="#">Loyalty Program</a>
+                <a href="#">Nutrition Info</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        <div class="footer-section">
+    <h3>Follow Us</h3>
+
+    <a href="https://www.instagram.com/brown_sugar_palestine/" target="_blank">
+        📱 Instagram
+    </a>
+
+    <a href="https://www.facebook.com/profile.php?id=100092010309037" target="_blank">
+        📘 Facebook
+    </a>
+
+  
+
+    <a href="https://www.tiktok.com/@brownsugar.pal" target="_blank">
+        📸 TikTok
+    </a>
+</div>
+
+        <div class="copyright">
+            © 2024 Brown Sugar Café. All rights reserved. | Crafted with ❤️ for boba lovers
+        </div>
+    </footer>
+
+    <script>
+        let drinks = [];
+        let branches = [];
+        let selectedBranch = null;
+        let cart = JSON.parse(localStorage.getItem('brownSugarCart')) || [];
+        
+        // Bubble types with colors
+        const bubbleTypes = [
+            { id: 'classic', name: 'Classic Tapioca', color: 'pearl-brown', price: 3 },
+            { id: 'brown-sugar', name: 'Brown Sugar', color: 'pearl-brown', price: 4 },
+            { id: 'strawberry', name: 'Strawberry Popping', color: 'pearl-strawberry', price: 3 },
+            { id: 'matcha', name: 'Matcha Pearls', color: 'pearl-matcha', price: 5 },
+            { id: 'lychee', name: 'Lychee Jelly', color: 'pearl-lychee', price: 5 },
+            { id: 'taro', name: 'Taro Pearls', color: 'pearl-taro', price: 4 },
+            { id: 'honey', name: 'Hcomb Pearls', color: 'pearl-honey', price: 5 },
+            { id: 'mango', name: 'Mango Popping', color: 'pearl-honey', price: 6 }
+        ];
+        
+        // Load drinks and branches
+        async function loadData() {
+            // Real Israeli branch names with Brown Sugar Café theme
+            branches = [
+                {id: 1, name: 'Main Branch', address: 'Ramallah Btn Al-Hawa', phone: '0567 224 455', hours: 'Sun-Thu: 8:00-23:00, Fri: 8:00-15:00, Sat: 19:00-23:00'},
+                {id: 2, name: 'Icon Mall Branch', address: ' next to the National Bank', phone: '02-345-6789', hours: 'Sun-Thu: 8:00-22:30, Fri: 8:00-14:00, Sat: 20:00-23:00'},
+                {id: 3, name: 'Birzeit University Branch', address: 'Birzeit University', phone: '02 295 4444', hours: 'Sun-Thu: 7:30-22:00, Fri: 7:30-14:00, Sat: 19:30-23:00'},
+                {id: 4, name: 'Surda - Abo Qush', address: 'Main street branch', phone: '02 295 4444', hours: 'Sun-Thu: 9:00-22:00, Fri: 9:00-15:00, Sat: 19:00-23:00'},
+            ];
+            
+            // Brown Sugar Café drinks with prices in shekels
+            drinks = [
+                {
+                    id: 1, 
+                    name: 'Sugar Free Dark Chocolate', 
+                    price: 17.00, 
+                                        description: '', 
+
+ image: 'static/images/sugarfree.png', // ← رابط جديد             
+        category: 'Hot Drink'
+                },
+                {
+                    id: 2, 
+                    name: 'Hot Taro', 
+                    price: 18.00, 
+                    description: '', 
+ image: 'static/images/hottaro.png', // ← رابط جديد             
+                    category: 'Hot Drink'
+                },
+                {
+                    id: 3, 
+                    name: 'Milky Peanuts', 
+                    price: 17.00, 
+                    description: '', 
+ image: 'static/images/milkypeanuts.png', // ← رابط جديد             
+                    category:'Hot Drink'
+                },
+                {
+                    id: 4, 
+                    name: 'Hot Mix Chocolate', 
+                    price: 20.00, 
+                    description: 'Premium matcha green tea with brown sugar boba pearls', 
+ image: 'static/images/hotmixedchocho.png', // ← رابط جديد             
+                    category:'Hot Drink'
+                },
+                {
+                    id: 5, 
+                    name: 'Strawberry Milk Shake', 
+                    price: 16.00, 
+                    description: 'Fresh strawberry with brown sugar syrup and popping boba', 
+ image: 'static/images/strawperryshake.png', // ← رابط جديد             
+                    category: 'Fruit'
+                },
+                {
+                    id: 6, 
+                    name: 'Strawberry Yougurt', 
+                    price: 18.00, 
+                    description: '', 
+ image: 'static/images/strawperryyougurt.png', // ← رابط جديد             
+                    category: 'Fruit'
+                },
+               
+            ];
+            
+            renderBranches();
+            renderDrinks();
+            updateCartBadge();
+        }
+        
+        function renderBranches() {
+            const container = document.getElementById('branchesContainer');
+            container.innerHTML = branches.map(branch => `
+                <div class="branch-card" onclick="selectBranch(${branch.id})">
+                    <h3>${branch.name}</h3>
+                    <p>📍 ${branch.address}</p>
+                    <p>📞 ${branch.phone}</p>
+                    <p class="branch-hours">${branch.hours}</p>
+                </div>
+            `).join('');
+        }
+        
+        function selectBranch(branchId) {
+            selectedBranch = branchId;
+            document.querySelectorAll('.branch-card').forEach((card, index) => {
+                if (branches[index].id === branchId) {
+                    card.classList.add('selected');
+                } else {
+                    card.classList.remove('selected');
+                }
+            });
+            
+            showSuccess(`Selected: ${branches.find(b => b.id === branchId).name}`);
+        }
+        
+        function renderDrinks(filter = 'all') {
+            const grid = document.getElementById('drinksGrid');
+            const filteredDrinks = filter === 'all' 
+                ? drinks 
+                : drinks.filter(drink => drink.category === filter);
+            
+            grid.innerHTML = filteredDrinks.map(drink => `
+                <div class="drink-card">
+                    <img src="${drink.image}" alt="${drink.name}" class="drink-image">
+                    <div class="drink-content">
+                        <span class="drink-category">${drink.category}</span>
+                        <h3>${drink.name}</h3>
+                        <p>${drink.description}</p>
+                        
+                       ${drink.category !== 'Hot Drink' ? `
+<!-- Bubble Selection -->
+<div class="bubble-selection">
+    <div class="bubble-option">
+        <label>Boba Pearls:</label>
+        <div class="bubble-toggle">
+            <button class="toggle-btn" onclick="toggleBobaOption(${drink.id}, 'with')">With Boba</button>
+            <button class="toggle-btn" onclick="toggleBobaOption(${drink.id}, 'without')">Without Boba</button>
+        </div>
+        
+        <div class="bubble-types" id="bubbleTypes-${drink.id}" style="display: none;">
+            ${bubbleTypes.map(bubble => `
+                <div class="bubble-type" onclick="selectBubbleType(${drink.id}, '${bubble.id}')" data-price="${bubble.price}">
+                    <div class="bubble-pearl ${bubble.color}"></div>
+                    <span>${bubble.name}</span>
+                    <small style="color: var(--fresh-mint); font-size: 0.75rem;">+₪${bubble.price}</small>
+                </div>
+            `).join('')}
+        </div>
+    </div>
+</div>
+` : ''}
+
+                                
+                            
+                            </div>
+                        </div>
+                        
+                        <div class="customize">
+                            <label>Size:</label>
+                            <select id="size-${drink.id}">
+                                <option value="Small">Small</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="Large">Large</option>
+                            </select>
+                            
+                            <label>Ice Level:</label>
+                            <select id="ice-${drink.id}">
+                                <option value="No Ice">No Ice</option>
+                                <option value="25%">25%</option>
+                                <option value="50%">50%</option>
+                                <option value="75%">75%</option>
+                                <option value="100%" selected>100%</option>
+                            </select>
+                            
+                            <label>Sugar Level:</label>
+                            <select id="sugar-${drink.id}">
+                                <option value="0%">0%</option>
+                                <option value="25%">25%</option>
+                                <option value="50%">50%</option>
+                                <option value="75%">75%</option>
+                                <option value="100%" selected>100%</option>
+                            </select>
+                        </div>
+                        
+                        <div class="drink-footer">
+                            <div class="drink-price">${drink.price.toFixed(2)}</div>
+                            <button class="add-to-cart" onclick="addToCart(${drink.id})">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Initialize all boba options to 'with' and select default bubble
+            drinks.forEach(drink => {
+                toggleBobaOption(drink.id, 'with');
+                selectBubbleType(drink.id, 'brown-sugar');
+            });
+        }
+        
+        function toggleBobaOption(drinkId, option) {
+            const bubbleTypesDiv = document.getElementById(`bubbleTypes-${drinkId}`);
+            const toggleBtns = document.querySelectorAll(`#drinksGrid [onclick="toggleBobaOption(${drinkId}, 'with')"], #drinksGrid [onclick="toggleBobaOption(${drinkId}, 'without')"]`);
+            
+            toggleBtns.forEach(btn => btn.classList.remove('selected'));
+            
+            if (option === 'with') {
+                bubbleTypesDiv.style.display = 'grid';
+                toggleBtns[0].classList.add('selected');
+            } else {
+                bubbleTypesDiv.style.display = 'none';
+                toggleBtns[1].classList.add('selected');
+                // Clear any selected bubble type
+                document.querySelectorAll(`#bubbleTypes-${drinkId} .bubble-type`).forEach(bubble => {
+                    bubble.classList.remove('selected');
+                });
+            }
+        }
+        
+        function selectBubbleType(drinkId, bubbleId) {
+            const bubbleTypesDiv = document.getElementById(`bubbleTypes-${drinkId}`);
+            bubbleTypesDiv.querySelectorAll('.bubble-type').forEach(bubble => {
+                bubble.classList.remove('selected');
+            });
+            
+            const selectedBubble = bubbleTypesDiv.querySelector(`[onclick="selectBubbleType(${drinkId}, '${bubbleId}')"]`);
+            if (selectedBubble) {
+                selectedBubble.classList.add('selected');
+            }
+        }
+        
+        function filterDrinks(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            renderDrinks(category);
+        }
+        
+        function addToCart(drinkId) {
+            if (!selectedBranch) {
+                showSuccess("Please select a branch first!");
+                return;
+            }
+            
+            const drink = drinks.find(d => d.id === drinkId);
+            const size = document.getElementById(`size-${drinkId}`).value;
+            const ice = document.getElementById(`ice-${drinkId}`).value;
+            const sugar = document.getElementById(`sugar-${drinkId}`).value;
+            
+            // Get boba selection
+          // Get boba selection (SAFE)
+let hasBoba = false;
+let selectedBubble = null;
+let bubblePrice = 0;
+
+const isHotDrink = drink.category === 'Hot Drink';
+const bubbleTypesDiv = document.getElementById(`bubbleTypes-${drinkId}`);
+
+if (!isHotDrink && bubbleTypesDiv && bubbleTypesDiv.style.display !== 'none') {
+    hasBoba = true;
+
+    const selectedBubbleEl = bubbleTypesDiv.querySelector('.bubble-type.selected');
+    if (selectedBubbleEl) {
+        bubblePrice = parseFloat(selectedBubbleEl.dataset.price);
+        selectedBubble = {
+            name: selectedBubbleEl.querySelector('span').textContent,
+            price: bubblePrice,
+            color: selectedBubbleEl.querySelector('.bubble-pearl').className.split(' ')[1]
+        };
+    }
+}
+
+            
+            // Calculate total price
+            let totalPrice = drink.price + (hasBoba ? bubblePrice : 0);
+            
+            const cartItem = {
+                id: Date.now(),
+                drinkId: drink.id,
+                name: drink.name,
+                size: size,
+                ice: ice,
+                sugar: sugar,
+                hasBoba: hasBoba,
+                bubble: selectedBubble,
+                basePrice: drink.price,
+                bubblePrice: bubblePrice,
+                totalPrice: totalPrice,
+                branchId: selectedBranch,
+                branchName: branches.find(b => b.id === selectedBranch).name,
+                quantity: 1
+            };
+            
+            cart.push(cartItem);
+            saveCart();
+            updateCartBadge();
+            showSuccess(`${drink.name} added to cart!`);
+        }
+        
+        function updateQuantity(itemId, change) {
+            const itemIndex = cart.findIndex(item => item.id === itemId);
+            if (itemIndex === -1) return;
+            
+            const newQuantity = cart[itemIndex].quantity + change;
+            if (newQuantity < 1) {
+                removeFromCart(itemId);
+                return;
+            }
+            
+            cart[itemIndex].quantity = newQuantity;
+            cart[itemIndex].totalPrice = (cart[itemIndex].basePrice + cart[itemIndex].bubblePrice) * newQuantity;
+            
+            saveCart();
+            updateCartBadge();
+            updateCartDisplay();
+        }
+        
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            saveCart();
+            updateCartBadge();
+            updateCartDisplay();
+        }
+        
+        function saveCart() {
+            localStorage.setItem('brownSugarCart', JSON.stringify(cart));
+        }
+        
+        function updateCartBadge() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartBadge').textContent = totalItems;
+        }
+        
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('active');
+            updateCartDisplay();
+        }
+        
+        function updateCartDisplay() {
+            const cartItemsContainer = document.getElementById('cartItemsContainer');
+            const emptyCartDiv = document.getElementById('emptyCart');
+            const checkoutForm = document.getElementById('checkoutForm');
+            const cartTotalSection = document.getElementById('cartTotalSection');
+            const orderSummary = document.getElementById('orderSummary');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '';
+                emptyCartDiv.style.display = 'block';
+                checkoutForm.style.display = 'none';
+                cartTotalSection.style.display = 'none';
+                orderSummary.style.display = 'none';
+                return;
+            }
+            
+            emptyCartDiv.style.display = 'none';
+            checkoutForm.style.display = 'block';
+            cartTotalSection.style.display = 'flex';
+            orderSummary.style.display = 'block';
+            
+            // Update order summary
+            const selectedBranch = cart.length > 0 ? cart[0].branchName : '-';
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            const now = new Date();
+            const readyTime = new Date(now.getTime() + 15 * 60000); // 15 minutes from now
+            
+            document.getElementById('summaryBranch').textContent = selectedBranch;
+            document.getElementById('summaryItems').textContent = totalItems;
+            document.getElementById('summaryTime').textContent = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            document.getElementById('summaryReady').textContent = readyTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            
+            // Render cart items
+            let total = 0;
+            cartItemsContainer.innerHTML = cart.map(item => {
+                total += item.totalPrice;
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <div class="cart-item-details">
+                                <span>${item.size} • ${item.ice} ice • ${item.sugar} sugar</span><br>
+                                ${item.hasBoba ? 
+                                    `<span class="bubble-indicator">
+                                        <div class="small-pearl ${item.bubble.color}"></div>
+                                        ${item.bubble.name} (+₪${item.bubblePrice})
+                                    </span>` : 
+                                    '<span>No boba</span>'
+                                }
+                                <br>
+                                <small style="color: var(--fresh-mint);">${item.branchName}</small>
+                            </div>
+                            <div class="cart-item-price">${item.totalPrice.toFixed(2)}</div>
+                        </div>
+                        <div class="item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                <span class="item-quantity">${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            </div>
+                            <button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('cartTotal').textContent = `₪${total.toFixed(2)}`;
+        }
+        
+        function placeOrder() {
+            const name = document.getElementById('customerName').value;
+            const phone = document.getElementById('customerPhone').value;
+            const email = document.getElementById('customerEmail').value;
+            const notes = document.getElementById('orderNotes').value;
+            const pickupTime = document.getElementById('pickupTime').value;
+            
+            if (!name || !phone) {
+                showSuccess("Please fill in all required fields");
+                return;
+            }
+            
+            if (!selectedBranch) {
+                showSuccess("Please select a branch");
+                return;
+            }
+            
+            // Create order object
+            const order = {
+                orderId: 'ORD-' + Date.now().toString().slice(-8),
+                customer: { name, phone, email, notes },
+                pickupTime,
+                items: [...cart],
+                branch: branches.find(b => b.id === selectedBranch),
+                total: cart.reduce((sum, item) => sum + item.totalPrice, 0),
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save order to localStorage (simulated)
+            const orders = JSON.parse(localStorage.getItem('brownSugarOrders') || '[]');
+            orders.push(order);
+            localStorage.setItem('brownSugarOrders', JSON.stringify(orders));
+            
+            showSuccess(`Order #${order.orderId} placed successfully! Ready at ${order.branch.name}.`);
+            
+            // Clear cart
+            cart = [];
+            saveCart();
+            updateCartBadge();
+            updateCartDisplay();
+            
+            // Reset form
+            document.getElementById('customerName').value = '';
+            document.getElementById('customerPhone').value = '';
+            document.getElementById('customerEmail').value = '';
+            document.getElementById('orderNotes').value = '';
+            document.getElementById('pickupTime').value = 'asap';
+            
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                toggleCart();
+            }, 3000);
+        }
+        
+        function showSuccess(message) {
+            const successMsg = document.getElementById('successMsg');
+            successMsg.textContent = message;
+            successMsg.classList.add('active');
+            
+            setTimeout(() => {
+                successMsg.classList.remove('active');
+            }, 3000);
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
